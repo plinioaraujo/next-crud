@@ -19,3 +19,4 @@ export const botaoAcaoExclusao = (
     m-1
     hover:bg-purple-50`
 )
+

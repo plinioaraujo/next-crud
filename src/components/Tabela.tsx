@@ -8,9 +8,10 @@ function Tabela(props: TabelaProps) {
 
     function renderizarCabecalho() {
         return (<tr>
-            <th>Código</th>
-            <th>Nome</th>
-            <th>Idade</th>
+            <th className="text-left p-4">Código</th>
+            <th className="text-left p-4">Nome</th>
+            <th className="text-left p-4">Idade</th>
+           
         </tr>
         )
     }
@@ -18,10 +19,12 @@ function Tabela(props: TabelaProps) {
     function renderizarDados() {
         return props.clientes?.map((cliente, i) => {
             return (
-                <tr key={cliente.id}>
-                    <td>{cliente.id}</td>
-                    <td>{cliente.nome}</td>
-                    <td>{cliente.idade}</td>
+                <tr key={cliente.id} 
+                    className={`${i % 2 === 0 ? 'bg-purple-200' : 'bg-purple-100'}`}
+                >
+                    <td className="text-left p-4">{cliente.nome}</td>
+                    <td className="text-left p-4">{cliente.id}</td>
+                    <td className="text-left p-4">{cliente.idade}</td>
                 </tr>
             )
 
@@ -31,8 +34,11 @@ function Tabela(props: TabelaProps) {
 
     return (
         <>
-            <table>
-                <thead>
+            <table className={"w-full overflow-hidden rounded-xl"}>
+                <thead className={`
+                    bg-gradient-to-r from-purple-500 to-purple-800
+                text-gray-100 
+                `}> 
                     {renderizarCabecalho()}
                 </thead>
                 <tbody>

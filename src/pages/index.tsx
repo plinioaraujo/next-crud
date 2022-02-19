@@ -14,6 +14,13 @@ export default function Home() {
     new Cliente('Vanessa', 30, '7'),
     new Cliente('Adriana', 47, '8'),
   ]
+
+  function clienteSelecionado(cliente: Cliente){
+    alert(cliente.nome)
+  }
+  function clienteExluido(cliente: Cliente){
+    alert(`Excluir... ${cliente.nome}`)
+  }
   
   return (
     <div className={`
@@ -22,7 +29,7 @@ export default function Home() {
       text-white
     `}>
       <Layout titulo="Cadastro Simples">
-        <Tabela clientes={clientes}></Tabela>     
+        <Tabela clientes={clientes} clienteSelecionado={clienteSelecionado} clienteExcluido={clienteExluido}></Tabela>     
       </Layout>
     </div>
   )

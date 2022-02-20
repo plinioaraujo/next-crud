@@ -3,14 +3,17 @@
 interface BotaoProps {
     cor?:'green' | 'blue' | 'gray'
     className?: string
-    children: any    
+    children: any
+    onClick?: () => void    
 }
  
 function Botao(props: BotaoProps) {
     const cor = props.cor ?? 'gray'
 
     return ( 
-        <button className={`
+        <button 
+        onClick={props.onClick} 
+        className={`
         bg-gradient-to-r 
         from-${cor}-400
         to-${cor}-700
@@ -22,6 +25,7 @@ function Botao(props: BotaoProps) {
         
         `}>
             {props.children}
+        
         </button>
      );
 }
